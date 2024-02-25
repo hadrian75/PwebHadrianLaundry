@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../koneksi.php';
 
 $id = $_POST['id'];
 $nama = $_POST['nama'];
@@ -26,7 +26,7 @@ mysqli_stmt_bind_param($stmt, "sssssi", $nama, $username, $pass_hash, $id_outlet
 // Execute the statement
 if (mysqli_stmt_execute($stmt)) {
     // Successful update
-    header('Location:dashboard.php?page=logout');
+    header('Location:dashboard.php?page=editUser');
 } else {
     // Error handling
     echo "Update User Failed : " . mysqli_stmt_error($stmt);

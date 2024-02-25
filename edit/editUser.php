@@ -32,7 +32,7 @@ $data = mysqli_fetch_assoc($query);
     $paketSql = mysqli_query($koneksi, "SELECT * FROM tb_outlet");
     while($dataOutlet = mysqli_fetch_assoc($paketSql)){
     ?>
-    <option value="<?=$data['id'] ?>" <?php if($data["idOutlet"] == $dataOutlet["id"]){echo "selected";} ?>><?=$dataOutlet["nama"]?></option>
+    <option value="<?=$data['idOutlet'] ?>" <?php if($data["idOutlet"] == $dataOutlet["id"]){echo "selected";} ?>><?=$dataOutlet["nama"]?></option>
     <?php } ?>
     </select>
         </div>
