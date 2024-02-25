@@ -16,7 +16,7 @@ $data = mysqli_fetch_assoc($query);
 
 <body>
         <form action="edit/prosesEditUser.php" method="POST" class="bg-gray-600 max-w-xl mx-auto p-10 mt-5">
-            <input type="text" hidden name="id" value="<?= $data['id']?>">
+            <input type="text" hidden name="id" value="<?=$data['id']?>">
             <div class="mb-5">
             <div class="mb-5">
     <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama User</label>
@@ -32,7 +32,7 @@ $data = mysqli_fetch_assoc($query);
     $paketSql = mysqli_query($koneksi, "SELECT * FROM tb_outlet");
     while($dataOutlet = mysqli_fetch_assoc($paketSql)){
     ?>
-    <option value="<?=$data['idOutlet'] ?>" <?php if($data["idOutlet"] == $dataOutlet["id"]){echo "selected";} ?>><?=$dataOutlet["nama"]?></option>
+    <option value="<?=$dataOutlet['id'] ?>" <?php if($data["idOutlet"] == $dataOutlet["id"]){echo "selected";} ?>><?=$dataOutlet["nama"]?></option>
     <?php } ?>
     </select>
         </div>
@@ -59,7 +59,7 @@ $data = mysqli_fetch_assoc($query);
 
   <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
         </form>
-
+<?=$_SESSION['id_outlet']?>
 </body>
 
 </html>
