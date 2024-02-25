@@ -1,7 +1,7 @@
 <?php
 include 'koneksi.php';
 
-$id = $_GET['id'];
+$id = $_POST['id'];
 $nama = $_POST['nama'];
 $username = $_POST['username'];
 $id_outlet = $_POST['idOutlet'];
