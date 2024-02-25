@@ -41,4 +41,8 @@ mysqli_close($koneksi);
     echo "Update User Failed Wrong Password ";
     header('Location:../dashboard.php?page=editUser');
 }
+mysqli_stmt_close($stmtuser);
+mysqli_stmt_close($stmt);
+
+mysqli_close($koneksi)
 ?>
