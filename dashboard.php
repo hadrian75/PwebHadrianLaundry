@@ -97,6 +97,9 @@ if (!isset($_SESSION['username'])) {
         case 'editPaket':
             include "edit/editPaket.php";
             break;
+        case 'deletePaket':
+            include "delete/deletePaket.php";
+            break;
 
         case 'transaksi':
             include "view/viewTransaksi.php";

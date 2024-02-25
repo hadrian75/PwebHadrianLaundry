@@ -1,7 +1,7 @@
 <?php
 $id = $_GET['id'];
 
-$query = mysqli_query($koneksi, "SELECT tb_paket. *, tb_outlet.nama as namaOutlet, tb_outlet.id as idOutlet  FROM tb_paket INNER JOIN tb_outlet ON tb_paket.id_outlet = tb_outlet.id WHERE tb_paket.id ='$id'");
+$query = mysqli_query($koneksi, "SELECT tb_user. *, tb_outlet.nama as namaOutlet, tb_outlet.id as idOutlet  FROM tb_user INNER JOIN tb_outlet ON tb_user.id_outlet = tb_outlet.id WHERE tb_user.id ='$id'");
 $data = mysqli_fetch_assoc($query);
 ?>
 
@@ -18,6 +18,14 @@ $data = mysqli_fetch_assoc($query);
         <form action="edit/prosesEditUser.php" method="POST" class="bg-gray-600 max-w-xl mx-auto p-10 mt-5">
             <input type="text" hidden name="id" value="<?= $data['id']?>">
             <div class="mb-5">
+            <div class="mb-5">
+    <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama User</label>
+    <input type="text" name="nama" id="nama"  class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 p-2" placeholder="Isi Alamat Outlet" value="<?=$data["nama_paket"]?>">
+  </div>
+  <div class="mb-5">
+    <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+    <input type="text" name="username" id="username"  class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 p-2" placeholder="Isi Alamat Outlet" value="<?=$data["nama_paket"]?>">
+  </div>
     <label for="idOutlet" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Outlet</label>
     <select name="idOutlet" id="idOutlet" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
     <?php
@@ -29,8 +37,8 @@ $data = mysqli_fetch_assoc($query);
     </select>
         </div>
         <div class="mb-5">
-    <label for="jenis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis Paket</label>
-    <select name="jenis" id="jenis" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Role</label>
+    <select name="role" id="role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="" selected hidden>Pilih Role</option>
         <option value="admin" <?php echo ($data["role"] == "admin") ? 'selected' : ''; ?>>Admin</option>
         <option value="kasir" <?php echo ($data["role"] == "kasir") ? 'selected' : ''; ?>>Kasir</option>
@@ -39,13 +47,10 @@ $data = mysqli_fetch_assoc($query);
 </div>
 
   
+
   <div class="mb-5">
-    <label for="namaPaket" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Paket</label>
-    <input type="text" name="namaPaket" id="namaPaket"  class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 p-2" placeholder="Isi Alamat Outlet" value="<?=$data["nama_paket"]?>">
-  </div>
-  <div class="mb-5">
-    <label for="harga" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga Paket</label>
-    <input type="text" name="harga" id="harga"  class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 p-2" placeholder="Isi Alamat Outlet" value="<?=$data["harga"]?>">
+    <label for="pass" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+    <input type="password" name="pass" id="pass"  class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 p-2" placeholder="Isi Alamat Outlet" value="<?=$data["harga"]?>">
   </div>
 
   <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>

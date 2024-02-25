@@ -4,9 +4,9 @@ include 'koneksi.php';
 $id = $_GET['id'];
 $nama = $_POST['nama'];
 $username = $_POST['username'];
-$id_outlet = $_POST['id_outlet'];
+$id_outlet = $_POST['idOutlet'];
 $role = $_POST['role'];
-$password = $_POST['password'];
+$password = $_POST['pass'];
 
 $pass_hash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -20,10 +20,10 @@ mysqli_stmt_bind_param($stmt, "sssssi", $nama, $username, $pass_hash, $id_outlet
 // Execute the statement
 if (mysqli_stmt_execute($stmt)) {
     // Successful update
-    header('Location:../handlers/logout.php');
+    header('Location:dashboard.php?page=logout');
 } else {
     // Error handling
-    echo "Update Employee Failed : " . mysqli_stmt_error($stmt);
+    echo "Update User Failed : " . mysqli_stmt_error($stmt);
 }
 
 // Close statement
