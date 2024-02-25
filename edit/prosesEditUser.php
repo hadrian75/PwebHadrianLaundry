@@ -21,7 +21,7 @@ $sql = "UPDATE tb_user SET nama = ?, username = ?, password = ?, id_outlet = ?, 
 $stmt = mysqli_prepare($koneksi, $sql);
 
 // Bind parameters
-mysqli_stmt_bind_param($stmt, "sssssi", $nama, $username, $pass_hash, $id_outlet, $role, $id);
+mysqli_stmt_bind_param($stmt, "sssisi", $nama, $username, $pass_hash, $id_outlet, $role, $id);
 
 // Execute the statement
 if (mysqli_stmt_execute($stmt)) {
@@ -39,6 +39,6 @@ mysqli_stmt_close($stmt);
 mysqli_close($koneksi);
 } else{
     echo "Update User Failed Wrong Password ";
-    header('Location:dashboard.php?page=editUser');
+    header('Location:../dashboard.php?page=editUser');
 }
 ?>
